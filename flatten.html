@@ -1,0 +1,34 @@
+<!-- Write a function called flatten that takes an array that has child arrays and returns an array of 1 level. -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function(){
+			// define isArray method if not already defined
+			if (typeof Array.isArray === "undefined") {
+			    Array.isArray = function (arg) {
+			        return Object.prototype.toString.call(arg) === "[object Array]";
+			    };
+			}
+
+			function flatten(array, res){
+				if(!res){ var res = []; }
+				for(var i=0, arrlen=array.length; i<arrlen; i++){
+					if(Array.isArray(array[i])){
+						flatten(array[i], res);
+					} else {
+						res.push(array[i]);
+					}
+				}
+				return res;
+			}
+			var test = [23, [24, 43, [234, 244]], [1, 12, 13], [15, 20]];
+			console.log(test, " returns: ", flatten(test));
+		})()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

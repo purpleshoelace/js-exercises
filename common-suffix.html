@@ -1,0 +1,36 @@
+<!-- Given an array of strings, return the longest common suffix. (Ex: Given ["carnation", "persuasion", "satisfaction"], return "ion"). Return an empty string if there is no common suffix. -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	(function(){
+		function getLongestSuffix(array){
+			if(array.length == 0){ return ""; }
+			if(array.length == 1){ return array[0]; }
+			var temp = array[0];
+				sufflen = temp.length,
+				suff = [];
+			for(var i=1, arrlen=array.length; i<arrlen; i++){
+				for(var j=1, jlen = array[i].length; j<=sufflen; j++){
+					if(temp[sufflen-j] == array[i][jlen-j]){
+						suff.unshift(temp[sufflen-j]);
+					} else {
+						break;
+					}
+				}
+				temp = suff.join("");
+				sufflen = temp.length;
+				suff = [];
+			}
+			return temp;
+		}
+		var test=["carnation", "persuasion", "satisfaction"];		
+		console.log("The longest common suffix is ", getLongestSuffix(test));
+	})();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

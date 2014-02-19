@@ -1,0 +1,30 @@
+<!-- Given a string, return the first unique character. (Ex: Given "google", return "l".) -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	(function(){
+		function getFirstUnique(string){
+			string = string.split("");
+			var seen = [];
+			while(string.length!=0)
+			{
+				var element = string[0];
+				string.shift();
+				if(string.indexOf(element)==-1 && seen.indexOf(element)==-1)
+				{
+					return element;
+				}
+				seen.push(element);
+			}
+		}
+		var test="google";		
+		console.log("First unique character of "+test+" is: ", getFirstUnique(test));
+	})();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

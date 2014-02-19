@@ -1,0 +1,26 @@
+<!-- Return the median of an unsorted array. -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="binary-search-tree.js"></script>
+	<script type="text/javascript">
+		(function(){
+			// really should use quickselect & median of medians for O(n)
+			// but I'll leave this here as a quick O(nlogn) solution
+			function getMedian(array){
+				var bts = new BinarySearchTree();
+				for(var i=0, arrlen = array.length; i<arrlen; i++){
+					bts.add(array[i]);
+				}
+				return bts.toArray()[arrlen/2];
+			}
+			var test = [2,4,6,1,345,23,464,234,43,23,12,5];
+			console.log("The median of ", test, " is:", getMedian(test));
+		})()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

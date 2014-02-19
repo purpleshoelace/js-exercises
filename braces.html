@@ -1,0 +1,47 @@
+<!-- Given a N different open and close braces in a string "( { [ } ] )", check whether the string has matching braces. Return true if the braces match, false otherwise. -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function(){
+			function isBalanced(string){
+				var stack = [];
+				for(var i=0, strlen=string.length; i<strlen; i++){
+					switch(string[i]){
+						case "{":
+							stack.push("{");
+							break;
+						case "(":
+							stack.push("(");
+							break;
+						case "[":
+							stack.push("[");
+							break;
+						case "}":
+							if(stack[stack.length-1] == "{"){ stack.pop(); }
+							else { return false; }
+							break;
+						case ")":
+							if(stack[stack.length-1] == "("){ stack.pop(); }
+							else { return false; }
+							break;
+						case "]":
+							if(stack[stack.length-1] == "["){ stack.pop(); }
+							else { return false; }
+							break;				
+					}
+				}
+				return !stack.length
+			}
+			console.log("should be true, is", isBalanced("{eRWer[rw]werwer}rew"));
+			console.log("should be true, is", isBalanced("{eRWer[rw]werwer}(r)ew"));
+			console.log("should be false, is", isBalanced("{eRWer[rw(]wer)wer}rew"));
+			console.log("should be false, is", isBalanced("{eRWer[rw]werwerrew"));
+		})()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

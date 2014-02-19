@@ -1,0 +1,26 @@
+<!-- Given a string, return an array with all of its anagrams. (Ex: Given "car", return ["car", "cra", "acr", "arc", "rac", "rca"]) -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	(function(){
+		function getAnagrams(string, prefix, arr){
+			var strlen = string.length;
+			if(!prefix){ var prefix = ""; }
+			if(!arr){ var arr=[] ;}
+			if(strlen == 0) { arr.push(prefix); }
+			for(var i=0; i<strlen; i++){
+				getAnagrams(string.substring(0, i) + string.substring(i+1, strlen), prefix + string[i], arr);
+			}
+			return arr;
+		}
+		var test="car";		
+		console.log("The anagrams of "+test+" are:", getAnagrams(test));
+	})();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

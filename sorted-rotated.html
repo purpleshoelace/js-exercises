@@ -1,0 +1,28 @@
+<!-- Given a rotated sorted array of integers, return the smallest number in the array. (Ex: Given [23, 24, 43, 234, 244, 12, 15, 20], return 12. You may assume the numbers are unique.) -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function(){
+			function getSmallest(array){
+				var arrlen = array.length;
+				if( arrlen == 1 ){ return array[0]; }
+				if( array[Math.floor(arrlen/2)] < array[Math.floor(arrlen/2)+1] &&
+					array[Math.floor(arrlen/2)] < array[Math.floor(arrlen/2)-1]){
+					return array[Math.floor(arrlen/2)];
+				} else if( array[Math.floor(arrlen/2)] < array[Math.floor(arrlen/2)+1] ) {
+					return getSmallest(array.slice(0, Math.floor(arrlen/2)));
+				} else {
+					return getSmallest(array.slice(Math.floor(arrlen/2), arrlen));
+				}
+			}
+			var test = [23, 24, 43, 234, 244, 1, 12, 13, 15, 20];
+			console.log(test.join(", ") +" returns: ", getSmallest(test));
+		})()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

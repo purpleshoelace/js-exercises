@@ -1,0 +1,31 @@
+<!-- Given a string, return a string with only the unique characters. (Ex: "Mississippi" to "Misp") -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function(){
+			function getUnique(string){
+			    var unique='';
+			    for(var i=0, strlen=string.length; i<strlen; i++){
+			        var is_unique = false;
+			        for(var j=0; j<unique.length; j++){
+			            if(string[i]==unique[j]){
+			                is_unique = true;
+			                break;
+			            }
+			        }
+			        if(!is_unique){
+			            unique+=string[i];
+			        }
+			    }
+			   return unique;
+			}
+			console.log("Mississippi returns: ", getUnique("Mississippi"));
+		})()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

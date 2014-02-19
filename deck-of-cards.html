@@ -1,0 +1,78 @@
+<!-- Design the data structures for a generic deck of cards -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function(){
+
+
+			var Card = function Card(pip, suit){
+				if (!(this instanceof Card)){
+					return new Card( );
+				}
+				var that = this;
+				that.pip = pip;
+				that.suit = suit;
+				return that;
+			}
+			Card.prototype.toString = function() {
+				return this.pip + " of " + this.suit;
+			};
+
+
+
+			var Deck = function Deck(){
+				if (!(this instanceof Deck)){
+					return new Deck( );
+				}
+				var that = this;
+				that.cards = that.canonical;
+				return that;
+			}
+			
+			Deck.prototype._suits = ["Clubs", "Hearts", "Spades", "Diamonds"];
+			Deck.prototype._pips = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+			Deck.prototype._size = 52;
+
+
+
+			Deck.prototype.generateCanonical = function(){
+				var deck = [];
+				for(var i=0, slen=this._suits.length; i<slen; i++){
+					for(var j=0, plen=this._pips.length; j<plen; j++){
+						deck.push(new Card(this._pips[j], this._suits[i]));
+					}
+				}
+				return deck;
+			}
+			Deck.prototype.canonical = Deck.prototype.generateCanonical();
+			Deck.prototype.shuffleDeck = function(){
+				var size = this._size,
+					temp,
+					index;
+				while(size){
+					index = Math.floor(Math.random() * size--);
+					temp = this.cards[size];
+					this.cards[size] = this.cards[index];
+					this.cards[index] = temp;
+				}
+			}
+			Deck.prototype.toString = function(){
+				var deck = "";
+				for(index in this.cards){
+					deck += this.cards[index].toString() + ", " ;
+				}
+				return deck.substring(0, deck.length-2);
+			}
+
+
+			var my_deck = new Deck();
+
+		})()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

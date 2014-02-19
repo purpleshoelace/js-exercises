@@ -1,0 +1,29 @@
+<!-- Invert a hashmap. ( Ex: Given { a: [b ,c], d: [e, f] }, return { b: a, c: a, e: d, f: d }  -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function(){
+			function invertHash(hsh){
+				var inverse = {},
+				for(index in hsh){
+					var i,
+						arrlen = hsh[index].length;
+					for(i=0; i<arrlen; i++){
+						console.log(hsh[index][i]);
+						var temp = hsh[index][i];
+						inverse[temp] = index;
+					}
+				}
+				return inverse;
+			}
+			var test = {a: ["b", "c"], d: ["e", "f"]};
+			console.log("The inverse of ", test, " is:", invertHash(test));
+		})()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

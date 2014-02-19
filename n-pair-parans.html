@@ -1,0 +1,23 @@
+<!-- Implement an algorithm to print all valid combinations of n-pairs of parentheses. -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function(){
+			function validPairs(n, m, str){
+				if( m === undefined ){ var m=0; }
+				if( str === undefined ){ var str=""; }
+				if( m == 0 && n == 0 ){ console.log(str); }
+				if( n>0 ){ validPairs(n-1, m+1, str+"("); }
+				if( m>0 ){ validPairs(n, m-1, str+")"); }
+			}
+			var test = 3;
+			validPairs(test);
+		})()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- Given an array with duplicate strings, return an array with unique strings. (Ex: ["cat", "cat", "dog", "bird", "dog"] to ["cat", "dog", "bird"]) -->
+
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		(function(){
+			function getUnique(array){
+				var tracker_hash = {},
+					result = [];
+				for ( var i = 0, arrlen = array.length; i < arrlen; ++i ) {
+					if ( !tracker_hash.hasOwnProperty(array[i]) ) {
+						tracker_hash[ array[i] ] = true;
+						result.push(array[i]);
+					}
+			    }
+			    return result;
+			}
+			var test = ["cat", "cat", "dog", "bird", "dog"];
+			console.log(test.join(" ") +" returns: ", getUnique(test));
+		})()
+	</script>
+</head>
+<body>
+
+</body>
+</html>
